@@ -8,8 +8,9 @@ package "httpd" do
   action :install
 end
 
+node.default["apache"]["indexfile"] = "index2.html"
 cookbook_file "/var/www/html/index.html" do
-  source node ["apache"]["indexfile"]
+  source node["apache"]["indexfile"]
   mode "0644"
 end
 
