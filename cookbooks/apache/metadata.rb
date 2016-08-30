@@ -13,3 +13,11 @@ version '0.1.0'
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Source` link
 # source_url 'https://github.com/<insert_org_here>/apache' if respond_to?(:source_url)
+
+name 'apache'
+maintainer 'pleskar'
+maintainer_email 'pleskar@bitlancer.com'
+license 'All rights reserved'
+description 'Installs/Configures apache'
+long_description IO.read(File.join(File.dirname(_FILE_), 'README.md'))
+version '0.1.0'
