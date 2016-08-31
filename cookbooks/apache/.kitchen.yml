@@ -3,10 +3,14 @@ driver:
   name: vagrant
   network:
     - ["forwarded_port", { guest: 80, host: 80 }]
+    - ["forwarded_port", { guest: 443, host: 443 }]
     - ["private_network", { ip: "192.168.33.33" }]
 
 provisioner:
   name: chef_zero
+  environments_path: ../../environments
+  data_bags: ../../data_bags
+  roles_path: ../../roles
 
 platforms:
   - name: centos-7.1
@@ -14,6 +18,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[apache::default]
+      - recipe[apache]
       - recipe[motd]
+      - recipe[apache::ip-logger]
     attributes:

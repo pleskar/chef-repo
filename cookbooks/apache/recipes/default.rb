@@ -10,7 +10,7 @@ end
 
 #Disable the default virtula host
 execute "mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.disabled" do
-  only_if { File.exists?("/etc/httpd/confd/welcome.conf") }
+  only_if { File.exists?("/etc/httpd/conf.d/welcome.conf") }
   notifies :restart, "service[httpd]"
 end
 
@@ -25,8 +25,8 @@ end
 #Iterate over the sites
 
 node["apache"]["sites"].each do |site_name, site_data|
-#Set the document root variable
-document_root = "/srv/apache/#{site_name}"
+  #Set the document root variable
+  document_root = "/srv/apache/#{site_name}"
  
   #Create the virtual hosts definition
   template "/etc/httpd/conf.d/#{site_name}.conf" do
