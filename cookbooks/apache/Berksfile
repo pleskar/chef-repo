@@ -4,3 +4,5 @@ metadata
 
 cookbook 'motd', path: '../motd'
 cookbook 'pci', path: '../pci'
+cookbook 'users', path: '../users'
+

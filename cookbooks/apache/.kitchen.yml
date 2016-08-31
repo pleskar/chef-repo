@@ -21,4 +21,5 @@ suites:
       - recipe[apache]
       - recipe[motd]
       - recipe[apache::ip-logger]
+      - recipe[users]
     attributes:
